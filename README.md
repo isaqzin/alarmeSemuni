@@ -44,7 +44,7 @@ O projeto foi **originalmente desenvolvido pelos ex-trainees** da Eletronjun, co
     </td>
     <td align="center">
       <img src="https://github.com/setryky.png" width=100><br>
-      <b><a href="https://github.com/setryky">Vinícius Alencar</a></b><br>
+      <b><a href="https://github.com/setryky">Lucas de Souza</a></b><br>
     </td>
   </tr>
 </table>
