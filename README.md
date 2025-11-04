@@ -38,10 +38,13 @@ O projeto foi **originalmente desenvolvido pelos ex-trainees** da Eletronjun, co
       <img src="https://github.com/ArturNavarro.png" width=100><br>
       <b><a href="https://github.com/ArturNavarro">Artur Navarro</a></b><br>
     </td>
-  </tr>
-  <td align="center">
+    <td align="center">
       <img src="https://github.com/Alencar52.png" width=100><br>
       <b><a href="https://github.com/Alencar52">Vinícius Alencar</a></b><br>
+    </td>
+    <td align="center">
+      <img src="https://github.com/setryky.png" width=100><br>
+      <b><a href="https://github.com/setryky">Vinícius Alencar</a></b><br>
     </td>
   </tr>
 </table>
