@@ -1,0 +1,69 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alarme Eletronjun</title>
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+    <body>
+  <header>
+    <div class="conteudo-centralizado">
+      <img src="{% static 'img/logo_eletronjun.png' %}" alt="logo Eletronjun">
+    </div>
+     
+  </header>
+
+  <div class="container">
+    <div class="estado_data">
+      <h2>Estado Atual: 
+        {% if estado_atual == 'ligado' %}
+          <span style="color:#28a745;">LIGADO</span>
+        {% elif estado_atual == 'manual' %}
+          <span style="color:#ffc107;">MANUAL</span>
+        {% else %}
+          <span style="color:#d9534f;">DESLIGADO</span>
+        {% endif %}
+      </h2>
+
+      <p style="margin-top:1rem;color:#666;">
+        Última atualização: {{ data|default:"--/--/---- --:--:--" }}
+      </p>      
+    </div>
+
+
+    <div class="botoes">
+      <form method="POST" style="padding: 10px;">
+        {% csrf_token %}
+        <button type="submit" name="acao" value="ligado" class="meu-botao">LIGAR</button>
+        <button type="submit" name="acao" value="desligado" class="meu-botao">DESLIGAR</button>
+        <button type="submit" name="acao" value="manual" class="meu-botao">MANUAL</button>
+      </form>
+
+
+      <div class="second_linha">
+        <form method="POST" style="padding: 10px; padding-right: 0%; padding-top: 0;">
+          {% csrf_token %}
+          {% if buzzer == True %}
+            <button type="submit" name="acao" value="buzzer_off" class="meu-botao" style="background-color: #28a745;">BUZZER ATIVO</button>
+          {% else %}
+            <button type="submit" name="acao" value="buzzer_on" class="meu-botao" style="background-color: red;">BUZZER DESLIGADO</button>
+          {% endif %}
+          </form>
+
+        <form method="POST" style="padding: 10px; padding-left: 7px; padding-top: 0;">
+          {% csrf_token %}
+          <button type="submit" name="acao" value="historico" class="meu-botao">HISTÓRICO</button>
+        </form>
+      </div>
+      
+
+      </div>
+
+    
+    
+  </div>
+    </body>
+</html>
+

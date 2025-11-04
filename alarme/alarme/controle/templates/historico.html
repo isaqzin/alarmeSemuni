@@ -1,0 +1,80 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sistema de Segurança a Laser — Histórico</title>
+    <link rel="stylesheet" href="{% static 'css/historico.css' %}">   
+    </head>
+    <body>
+        <header>
+            <button
+                class="home-button"
+                title="Home"
+                onclick="window.location.href='/'"
+            >
+                <svg
+                    style="color: #0b442b; z-index: 2;"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+            </button>
+            <div class="conteudo-centralizado">
+              <img src="{% static 'img/logo_eletronjun.png' %}" alt="logo Eletronjun">
+            </div> 
+        </header>
+
+        <div class="table-container">
+            <form method="get">
+                <label for="estado">Filtrar por estado:</label>
+                <select name="estado" id="estado">
+                    <option value="">Todos</option>
+
+                    <option value="ligado"
+                        {% if estado_filtro == "ligado" %}selected{% endif %}>
+                        Ligado
+                    </option>
+
+                    <option value="desligado"
+                        {% if estado_filtro == "desligado" %}selected{% endif %}>
+                        Desligado
+                    </option>
+
+                    <option value="manual"
+                        {% if estado_filtro == "manual" %}selected{% endif %}>
+                        manual
+                    </option>
+                </select>
+
+                <button type="submit">Filtrar</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modo do Sistema</th>
+                        <th>Data/Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in dados %}
+                    <tr>
+                        <td>{{ d.estado_alarme }}</td>
+                        <td>{{ d.criado_em|date:"d/m/Y H:i:s" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td class="no-data" colspan="2">
+                            Nenhum dado encontrado.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
